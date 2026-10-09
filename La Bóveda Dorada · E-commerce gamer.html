@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>La Bóveda Dorada · Tienda gamer y friki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070605;--bg2:#100e0a;--card:#16130d;--line:#2e2616;--gold:#d4af37;--gold2:#f3d77a;--gold3:#8a6d1a;--tx:#f1ead8;--mu:#a69c82;--err:#ff7b6b;--ok:#8fd694;
+--d:'Cinzel',Georgia,'Times New Roman',serif;--b:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.6 var(--b);background-image:radial-gradient(900px 500px at 80% -10%,#2a200a 0%,transparent 60%)}
+button,input,select{font:inherit;color:inherit}
+a{color:var(--gold2)}
+:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(7,6,5,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:20px;height:64px}
+.logo{font:900 20px var(--d);letter-spacing:.06em;color:var(--gold);text-decoration:none;white-space:nowrap}
+nav{display:flex;gap:18px;margin-left:auto}
+nav a{color:var(--mu);text-decoration:none;font-weight:500}nav a:hover{color:var(--gold2)}
+.cartbtn{background:none;border:1px solid var(--gold3);border-radius:8px;padding:8px 14px;cursor:pointer;display:flex;gap:8px;align-items:center}
+.cartbtn:hover{border-color:var(--gold)}
+.cnt{background:var(--gold);color:#000;border-radius:99px;min-width:22px;height:22px;display:grid;place-items:center;font-size:13px;font-weight:700;padding:0 6px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:72px 0 56px}
+h1,h2,h3{font-family:var(--d);margin:0;line-height:1.15}
+h1{font-size:clamp(34px,5.5vw,62px);font-weight:900;color:var(--tx)}
+h1 em{font-style:normal;color:var(--gold)}
+.hero p{color:var(--mu);max-width:48ch;font-size:18px}
+.btn{display:inline-block;background:linear-gradient(180deg,var(--gold2),var(--gold));color:#120d00;border:0;border-radius:8px;padding:12px 22px;font-weight:700;cursor:pointer;text-decoration:none}
+.btn:hover{filter:brightness(1.08)}.btn.ghost{background:none;color:var(--gold2);border:1px solid var(--gold3)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.cta{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.chest{border:1px solid var(--gold);border-radius:16px;padding:28px;background:linear-gradient(160deg,#241b07,#0c0a05);box-shadow:0 0 60px rgba(212,175,55,.18);text-align:center}
+.chest .ic{font-size:110px;line-height:1;filter:drop-shadow(0 0 24px rgba(212,175,55,.5))}
+.chest h3{font-size:24px;margin:14px 0 4px;color:var(--gold2)}
+.chest small{color:var(--mu)}
+.perks{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:64px}
+.perks div{background:var(--bg2);padding:18px;font-size:14px;color:var(--mu)}.perks b{display:block;color:var(--tx);font-size:15px}
+section{padding:24px 0 56px}
+h2{font-size:clamp(26px,3.4vw,36px);color:var(--gold)}
+.tools{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0 28px;align-items:center}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:none;border:1px solid var(--line);border-radius:99px;padding:6px 15px;cursor:pointer;color:var(--mu)}
+.chip[aria-pressed=true]{background:var(--gold);color:#000;border-color:var(--gold);font-weight:700}
+.chip:hover{border-color:var(--gold3)}
+.tools input,.tools select{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:9px 12px}
+.tools input{flex:1;min-width:180px;max-width:320px}.tools .sp{margin-left:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--gold3);transform:translateY(-3px)}
+.card.r3{border-color:var(--gold3)}
+.art{height:150px;display:grid;place-items:center;font-size:68px;position:relative;background:radial-gradient(circle at 50% 60%,#2b210b,#0d0b06 70%)}
+.rar{position:absolute;top:10px;left:10px;font-size:12px;font-weight:700;padding:2px 10px;border-radius:99px;border:1px solid currentColor}
+.rar0{color:#b9b4a5}.rar1{color:#d9c27a}.rar2{color:var(--gold)}.rar3{color:#fff;background:linear-gradient(90deg,#8a6d1a,#f3d77a);border-color:transparent;color:#120d00}
+.info{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.info h3{font:700 16px var(--b)}.info .cat{color:var(--mu);font-size:13px}
+.stars{color:var(--gold);font-size:14px;letter-spacing:1px}
+.pr{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:10px}
+.pr b{font:700 20px var(--d);color:var(--gold2)}
+.add{background:none;border:1px solid var(--gold3);border-radius:8px;padding:7px 14px;cursor:pointer;color:var(--gold2);font-weight:700}
+.add:hover{background:var(--gold);color:#000}
+.empty{grid-column:1/-1;text-align:center;color:var(--mu);padding:40px}
+.news{border:1px solid var(--gold3);border-radius:16px;padding:36px;background:linear-gradient(120deg,#1d1606,#0a0804);display:flex;gap:24px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.news p{margin:6px 0 0;color:var(--mu)}
+.nf{display:flex;gap:10px;flex-wrap:wrap}
+input.f,.fld input{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:11px 13px;width:100%}
+.nf input{width:260px}
+input:invalid:not(:placeholder-shown){border-color:var(--err)}
+.msg{min-height:22px;font-size:14px;margin-top:8px}.msg.e{color:var(--err)}.msg.o{color:var(--ok)}
+footer{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--mu);font-size:14px}
+.fgrid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+aside.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--bg2);border-left:1px solid var(--gold3);z-index:40;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column;padding:calc(env(safe-area-inset-top,0px) + 18px) 18px calc(env(safe-area-inset-bottom,0px) + 18px)}
+aside.drawer.open{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.x{background:none;border:1px solid var(--line);border-radius:8px;width:36px;height:36px;cursor:pointer}
+.items{flex:1;overflow:auto;display:flex;flex-direction:column;gap:12px}
+.it{display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:12px}
+.it .e{font-size:32px;text-align:center}.it b{display:block;font-size:15px}.it small{color:var(--mu)}
+.q{display:flex;gap:6px;align-items:center;margin-top:4px}.q button{width:26px;height:26px;border-radius:6px;border:1px solid var(--line);background:none;cursor:pointer}
+.tot{display:flex;justify-content:space-between;font:700 20px var(--d);padding:14px 0;color:var(--gold2)}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:30;opacity:0;pointer-events:none;transition:opacity .25s}.scrim.on{opacity:1;pointer-events:auto}
+dialog{background:var(--bg2);color:var(--tx);border:1px solid var(--gold);border-radius:14px;padding:26px;width:min(480px,92vw)}
+dialog::backdrop{background:rgba(0,0,0,.75)}
+.fld{margin-bottom:12px}.fld label{display:block;font-size:14px;color:var(--mu);margin-bottom:4px}
+.hp{position:absolute;left:-9999px;height:0;overflow:hidden}
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);transform:translate(-50%,30px);background:var(--gold);color:#120d00;padding:10px 20px;border-radius:8px;font-weight:700;opacity:0;transition:.25s;z-index:60;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:40px}.perks{grid-template-columns:1fr 1fr}nav{display:none}.cartbtn{margin-left:auto}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+<a class="logo" href="#top">LA BÓVEDA DORADA</a>
+<nav aria-label="Principal"><a href="#tienda">Tienda</a><a href="#club">Club</a><a href="#ayuda">Ayuda</a></nav>
+<button class="cartbtn" id="openCart" aria-label="Abrir carrito">Carrito <span class="cnt" id="cnt">0</span></button>
+</div></header>
+
+<main id="top" class="wrap">
+<div class="hero">
+<div>
+<h1>Cada nivel merece su <em>botín</em>.</h1>
+<p>Consolas retro, coleccionables, periféricos y juegos de mesa elegidos por jugadores. Edición limitada, envío asegurado y garantía de autenticidad.</p>
+<div class="cta"><a class="btn" href="#tienda">Explorar la tienda</a><a class="btn ghost" href="#club">Unirme al club</a></div>
+</div>
+<div class="chest" aria-label="Producto destacado">
+<div class="ic" aria-hidden="true">🏆</div>
+<h3>Cofre del coleccionista</h3>
+<small>Edición legendaria · Stock: 7 unidades</small>
+</div>
+</div>
+
+<div class="perks">
+<div><b>Pago protegido</b>Cifrado de extremo a extremo</div>
+<div><b>Autenticidad</b>Producto oficial verificado</div>
+<div><b>Envío seguro</b>Seguimiento en cada paso</div>
+<div><b>30 días</b>Para devolver sin preguntas</div>
+</div>
+
+<section id="tienda">
+<h2>El inventario</h2>
+<div class="tools">
+<div class="chips" id="chips" role="group" aria-label="Categorías"></div>
+<input id="q" type="search" placeholder="Buscar producto" maxlength="40" aria-label="Buscar producto" autocomplete="off">
+<select id="sort" class="sp" aria-label="Ordenar"><option value="rar">Más raros primero</option><option value="asc">Precio: menor a mayor</option><option value="desc">Precio: mayor a menor</option><option value="rate">Mejor valorados</option></select>
+</div>
+<div class="grid" id="grid" aria-live="polite"></div>
+</section>
+
+<section id="club">
+<div class="news">
+<div><h2>Club de la Bóveda</h2><p>Recibí lanzamientos y reservas antes que nadie. Sin spam, te das de baja cuando quieras.</p></div>
+<div>
+<form class="nf" id="nl" novalidate>
+<input class="f" id="nlMail" type="email" placeholder="tu@correo.com" maxlength="80" autocomplete="email" required aria-label="Correo electrónico">
+<div class="hp" aria-hidden="true"><input id="nlHp" tabindex="-1" autocomplete="off"></div>
+<button class="btn" type="submit">Suscribirme</button>
+</form>
+<div class="msg" id="nlMsg" role="status"></div>
+</div>
+</div>
+</section>
+</main>
+
+<footer id="ayuda"><div class="wrap fgrid">
+<div><b style="color:var(--gold)">La Bóveda Dorada</b><br>Proyecto de portfolio. Los productos y pagos son una demostración.</div>
+<div>Envíos · Devoluciones · Privacidad · Términos</div>
+</div></footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Carrito" aria-hidden="true">
+<div class="dh"><h2 style="font-size:22px">Tu carrito</h2><button class="x" id="closeCart" aria-label="Cerrar carrito">✕</button></div>
+<div class="items" id="items"></div>
+<div class="tot"><span>Total</span><span id="total">$0</span></div>
+<button class="btn" id="checkout">Finalizar compra</button>
+</aside>
+
+<dialog id="dlg" aria-labelledby="dt">
+<h2 id="dt" style="font-size:22px;margin-bottom:14px">Finalizar compra</h2>
+<form id="ck" novalidate>
+<div class="fld"><label for="cn">Nombre completo</label><input id="cn" maxlength="60" autocomplete="name" required></div>
+<div class="fld"><label for="ce">Correo electrónico</label><input id="ce" type="email" maxlength="80" autocomplete="email" required></div>
+<div class="fld"><label for="ca">Dirección de envío</label><input id="ca" maxlength="100" autocomplete="street-address" required></div>
+<div class="fld"><label for="cz">Código postal</label><input id="cz" maxlength="8" inputmode="text" autocomplete="postal-code" required></div>
+<div class="hp" aria-hidden="true"><input id="ckHp" tabindex="-1" autocomplete="off"></div>
+<p style="font-size:13px;color:var(--mu)">Demo: no se solicitan datos de tarjeta ni se envía información a ningún servidor.</p>
+<div class="msg" id="ckMsg" role="alert"></div>
+<div style="display:flex;gap:10px;justify-content:flex-end"><button type="button" class="btn ghost" id="ckCancel">Cancelar</button><button class="btn" type="submit">Confirmar pedido</button></div>
+</form>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(()=>{
+'use strict';
+const RAR=['Común','Raro','Épico','Legendario'];
+const P=Object.freeze([
+{id:1,n:'Consola Retro 16-bit',c:'Consolas',p:129,r:4.8,e:'🕹️',t:3},
+{id:2,n:'Mando Arcade Edición Oro',c:'Periféricos',p:79,r:4.6,e:'🎮',t:2},
+{id:3,n:'Teclado Mecánico Forja',c:'Periféricos',p:149,r:4.9,e:'⌨️',t:2},
+{id:4,n:'Auriculares Valkiria 7.1',c:'Periféricos',p:99,r:4.5,e:'🎧',t:1},
+{id:5,n:'Figura Dragón Ancestral',c:'Coleccionables',p:189,r:4.9,e:'🐉',t:3},
+{id:6,n:'Espada Réplica del Héroe',c:'Coleccionables',p:219,r:4.7,e:'🗡️',t:3},
+{id:7,n:'Set de Dados Cristal Oro',c:'Juegos de mesa',p:29,r:4.8,e:'🎲',t:1},
+{id:8,n:'Dungeon Master Starter Box',c:'Juegos de mesa',p:59,r:4.7,e:'🏰',t:2},
+{id:9,n:'Cartas Tácticas Edición Foil',c:'Juegos de mesa',p:35,r:4.4,e:'🃏',t:1},
+{id:10,n:'Camiseta Pixel Boss',c:'Ropa',p:32,r:4.3,e:'👕',t:0},
+{id:11,n:'Sudadera Gremio de Magos',c:'Ropa',p:64,r:4.6,e:'🧙',t:1},
+{id:12,n:'Lámpara Neón Game Over',c:'Decoración',p:54,r:4.5,e:'💡',t:1},
+{id:13,n:'Póster Mapa del Reino',c:'Decoración',p:19,r:4.2,e:'🗺️',t:0},
+{id:14,n:'Alfombrilla XXL Obsidiana',c:'Periféricos',p:27,r:4.4,e:'🖱️',t:0},
+{id:15,n:'Casco Réplica Spartan',c:'Coleccionables',p:259,r:4.8,e:'🪖',t:3},
+{id:16,n:'Pack Pegatinas Arcade',c:'Decoración',p:9,r:4.1,e:'⭐',t:0}
+]);
+const byId=new Map(P.map(x=>[x.id,x]));
+const $=id=>document.getElementById(id);
+const money=n=>'$'+n.toLocaleString('es-AR');
+const el=(tag,cls,txt)=>{const x=document.createElement(tag);if(cls)x.className=cls;if(txt!==undefined)x.textContent=String(txt);return x};
+const clean=s=>String(s).replace(/[\u0000-\u001f<>]/g,'').trim().slice(0,100);
+const MAXQ=10;
+let cart=new Map(),cat='Todo',term='',sort='rar',lastFocus=null;
+
+/* Almacenamiento: se valida todo lo leído, nunca se confía en él */
+const store={
+ load(){try{const raw=JSON.parse(localStorage.getItem('bd_cart')||'[]');if(!Array.isArray(raw))return;
+  for(const it of raw.slice(0,50)){if(Array.isArray(it)&&Number.isInteger(it[0])&&byId.has(it[0])&&Number.isInteger(it[1])&&it[1]>0)cart.set(it[0],Math.min(it[1],MAXQ))}}catch(e){cart=new Map()}},
+ save(){try{localStorage.setItem('bd_cart',JSON.stringify([...cart]))}catch(e){}}
+};
+
+function toast(t){const x=$('toast');x.textContent=t;x.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>x.classList.remove('on'),1800)}
+
+function chips(){const box=$('chips');box.replaceChildren();
+ ['Todo',...new Set(P.map(x=>x.c))].forEach(c=>{const b=el('button','chip',c);b.type='button';b.setAttribute('aria-pressed',String(c===cat));b.onclick=()=>{cat=c;chips();grid()};box.append(b)})}
+
+function grid(){
+ const g=$('grid');g.replaceChildren();
+ let list=P.filter(x=>(cat==='Todo'||x.c===cat)&&x.n.toLowerCase().includes(term));
+ const s={rar:(a,b)=>b.t-a.t||b.r-a.r,asc:(a,b)=>a.p-b.p,desc:(a,b)=>b.p-a.p,rate:(a,b)=>b.r-a.r}[sort]||(()=>0);
+ list=[...list].sort(s);
+ if(!list.length){g.append(el('div','empty','No encontramos nada con ese nombre. Probá con otra búsqueda o categoría.'));return}
+ list.forEach(x=>{
+  const c=el('article','card'+(x.t===3?' r3':''));
+  const art=el('div','art',x.e);art.setAttribute('aria-hidden','true');
+  art.append(el('span','rar rar'+x.t,RAR[x.t]));
+  const info=el('div','info');
+  info.append(el('div','cat',x.c),el('h3','',x.n),el('div','stars','★'.repeat(Math.round(x.r))+'☆'.repeat(5-Math.round(x.r))+'  '+x.r.toFixed(1)));
+  const pr=el('div','pr');pr.append(el('b','',money(x.p)));
+  const a=el('button','add','Agregar');a.type='button';a.setAttribute('aria-label','Agregar '+x.n+' al carrito');a.onclick=()=>add(x.id);
+  pr.append(a);info.append(pr);c.append(art,info);g.append(c)})}
+
+function add(id){if(!byId.has(id))return;const q=(cart.get(id)||0)+1;if(q>MAXQ){toast('Máximo '+MAXQ+' por producto');return}cart.set(id,q);sync();toast('Agregado al carrito')}
+function setQ(id,d){const q=(cart.get(id)||0)+d;if(q<=0)cart.delete(id);else if(q<=MAXQ)cart.set(id,q);sync()}
+
+function sync(){store.save();const box=$('items');box.replaceChildren();let tot=0,n=0;
+ if(!cart.size)box.append(el('p','empty','Tu carrito está vacío. Elegí algo del inventario.'));
+ cart.forEach((q,id)=>{const p=byId.get(id);tot+=p.p*q;n+=q;
+  const r=el('div','it');r.append(el('div','e',p.e));
+  const m=el('div');m.append(el('b','',p.n),el('small','',money(p.p)+' c/u'));
+  const qq=el('div','q');
+  const mi=el('button','','−');mi.type='button';mi.setAttribute('aria-label','Quitar una unidad');mi.onclick=()=>setQ(id,-1);
+  const pl=el('button','','+');pl.type='button';pl.setAttribute('aria-label','Sumar una unidad');pl.onclick=()=>setQ(id,1);
+  qq.append(mi,el('span','',q),pl);m.append(qq);
+  r.append(m,el('b','',money(p.p*q)));box.append(r)});
+ $('cnt').textContent=n;$('total').textContent=money(tot);$('checkout').disabled=!cart.size}
+
+function openCart(){lastFocus=document.activeElement;$('drawer').classList.add('open');$('drawer').setAttribute('aria-hidden','false');$('scrim').classList.add('on');$('closeCart').focus()}
+function closeCart(){$('drawer').classList.remove('open');$('drawer').setAttribute('aria-hidden','true');$('scrim').classList.remove('on');if(lastFocus)lastFocus.focus()}
+$('openCart').onclick=openCart;$('closeCart').onclick=closeCart;$('scrim').onclick=closeCart;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('drawer').classList.contains('open'))closeCart()});
+
+$('q').addEventListener('input',e=>{term=clean(e.target.value).toLowerCase();grid()});
+$('sort').addEventListener('change',e=>{sort=['rar','asc','desc','rate'].includes(e.target.value)?e.target.value:'rar';grid()});
+
+/* Validación de formularios (allowlist) + honeypot + límite de frecuencia */
+const reMail=/^[^\s@<>]{1,64}@[^\s@<>]+\.[^\s@<>]{2,}$/;
+const reName=/^[\p{L}\p{M}' .-]{2,60}$/u;
+const reAddr=/^[\p{L}\p{N}\p{M}\s.,'#°\/-]{5,100}$/u;
+const rePost=/^[A-Za-z0-9 -]{3,8}$/;
+let lastTry=0;const tooFast=()=>{const n=Date.now();if(n-lastTry<1500)return true;lastTry=n;return false};
+function say(id,t,ok){const m=$(id);m.textContent=t;m.className='msg '+(ok?'o':'e')}
+
+$('nl').addEventListener('submit',e=>{e.preventDefault();
+ if($('nlHp').value)return;
+ if(tooFast())return say('nlMsg','Esperá un momento antes de volver a intentar.');
+ const v=clean($('nlMail').value);
+ if(!reMail.test(v))return say('nlMsg','Ingresá un correo válido, por ejemplo nombre@dominio.com.');
+ say('nlMsg','Listo, te anotamos en el club.',true);$('nl').reset()});
+
+$('checkout').onclick=()=>{if(!cart.size)return;closeCart();$('ckMsg').textContent='';$('dlg').showModal()};
+$('ckCancel').onclick=()=>$('dlg').close();
+$('ck').addEventListener('submit',e=>{e.preventDefault();
+ if($('ckHp').value)return;
+ if(tooFast())return say('ckMsg','Esperá un momento antes de volver a intentar.');
+ const n=clean($('cn').value),m=clean($('ce').value),a=clean($('ca').value),z=clean($('cz').value);
+ if(!reName.test(n))return say('ckMsg','Escribí tu nombre completo, solo con letras.');
+ if(!reMail.test(m))return say('ckMsg','El correo no tiene un formato válido.');
+ if(!reAddr.test(a))return say('ckMsg','La dirección debe tener entre 5 y 100 caracteres, sin símbolos especiales.');
+ if(!rePost.test(z))return say('ckMsg','Revisá el código postal.');
+ /* El total se recalcula siempre desde el catálogo, nunca desde datos del cliente */
+ let tot=0;cart.forEach((q,id)=>{tot+=byId.get(id).p*q});
+ const ref='BD-'+Array.from(crypto.getRandomValues(new Uint8Array(4)),b=>b.toString(16).padStart(2,'0')).join('').toUpperCase();
+ cart.clear();sync();$('ck').reset();$('dlg').close();
+ toast('Pedido '+ref+' confirmado · '+money(tot));
+});
+
+store.load();chips();grid();sync();
+})();
+</script>
+</body>
+</html>
